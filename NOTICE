@@ -1,0 +1,13 @@
+nenya-vllm: a vLLM plugin for Nenya-2.5B-A0.5B
+Copyright 2026 ArsalanZ
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This work includes third-party material:
+
+* nenya_vllm/ops/dilated_conv.py is copied from vLLM v0.33.0 (vllm/models/qwen4_exp/common/ops/ple.py), and
+  nenya_vllm/model_state.py is adapted from vLLM v0.33.0's Qwen4ExpModelState. vLLM
+  (https://github.com/vllm-project/vllm), copyright the vLLM contributors, is licensed under the Apache License,
+  Version 2.0.
+* benchmarks/data/origin_of_species.txt is an excerpt of Charles Darwin, "On the Origin of Species" (first edition,
+  1859), which is in the public domain.

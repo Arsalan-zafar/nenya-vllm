@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nenya-vllm"
+version = "0.1.0.dev0"
+description = "vLLM plugin for Nenya-2.5B-A0.5B (MLA + Gated DeltaNet-2 + MoE + Engram + mHC)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "ArsalanZ" }]
+dependencies = [
+    # The plugin uses vLLM internals (stateful-layer base classes, GDN/short-conv metadata,
+    # the MLA layer, the model-state hook): every vLLM upgrade is a deliberate bump.
+    "vllm==0.33.0",
+    # GDN-2 kernels exactly as Nenya was trained with them.
+    "flash-linear-attention==0.5.2",
+]
+
+[project.entry-points."vllm.general_plugins"]
+nenya = "nenya_vllm:register"
+
+[tool.setuptools.packages.find]
+include = ["nenya_vllm*"]
+
+[tool.setuptools.package-data]
+nenya_vllm = ["*.jinja"]
